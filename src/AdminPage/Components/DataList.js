@@ -1,9 +1,9 @@
 import React from 'react';
 
-
+import style from './DataList.module.css'
 const DataList = () =>{
     return(
-        <div>Hello</div>
+        <div className={style.hello}>Hello</div>
     )
 }
 

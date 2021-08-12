@@ -1,6 +1,4 @@
-import logo from './logo.svg';
-import {useEffect, useState} from "react";
-import {Route, Switch} from "react-router";
+import {Redirect, Route, Switch} from "react-router";
 import AdminPage from "./AdminPage/AdminPage";
 
 function App() {
@@ -9,6 +7,7 @@ function App() {
         <Route exact path='/adminboard'>
             <AdminPage/>
         </Route>
+        <Route path={'*'} render={()=> <Redirect to={'/'}/>}/>
     </Switch>
   );
 }
