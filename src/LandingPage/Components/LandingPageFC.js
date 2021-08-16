@@ -111,7 +111,7 @@ function LandingPageFC({symptomes}) {
                 <div className='numbered'>
                     {
                         actuals.map( a => (
-                            <button key={a+'nr'} onClick={changeNumbers.bind(this,a)}>{a}</button>
+                            <button key={a+'nr'} onClick={changeNumbers.bind(this,a)} className={(active===a)?('active'):('')}>{a}</button>
                         ))
                     }
                     
