@@ -1,9 +1,33 @@
 import React from 'react';
 
-import style from './DataList.module.css'
-const DataList = () =>{
+const DataList = ({users}) =>{
+    console.log(users);
+
     return(
-        <div className={style.hello}>Hello</div>
+        <>
+            <table >
+                <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Type</th>
+                </tr>
+                </thead>
+                <tbody>
+                {users.map((user)=>(
+                    <tr key={user.id}>
+                        <td>{user.username}</td>
+                        <td>{user.type}</td>
+                        <td>
+                            <button>Edit</button>
+                        </td>
+                        <td>
+                            <button>Delete</button>
+                        </td>
+                    </tr>
+                ))}
+                </tbody>
+            </table>
+        </>
     )
 }
 
