@@ -1,29 +1,36 @@
-import axios from 'axios';
-import { count } from 'd3';
-import React, {useEffect, useState} from 'react'
+import React, {useEffect} from "react";
 import Map from "./Components/Map";
-import {useDispatch} from "react-redux";
+import axios from 'axios';
+import {useDispatch} from "react-redux"
+import allActions from "../Store/Actions";
+
+
 
 
 const DashboardPage = () => {
-  // const [counties, setCounties] = useState([]);
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   getCountiesList();
-  // }, [])
-  // const getCountiesList = async() => {
-  //   await axios.get('https://covid19-info-internship.herokuapp.com/casesByCounty')
-  //     .then((res) => {
-  //       console.log(res.data);
-  //       setCounties(res.data);
-  //     })
-  //     .catch((err) =>{
-  //       console.log(err);
-  //     });
-  // }
+  const dispatch = useDispatch();
+  useEffect(()=>{
+    getCountiesList()
+        .then((r)=>{
+        });
+
+},[])
+
+
+  const getCountiesList = async ()=> {
+    await axios.get('http://localhost:5000/casesByCounty')
+        .then((res)=>{
+            console.log(res.data);
+            dispatch(allActions.countiesActions.loadCounties(res.data));
+        })
+        .catch((err)=>{
+            console.log(err);
+        })
+    ;
+ }
+
   return(
     <>
-    <p>test</p>
     <Map />
     </>
   )
@@ -31,18 +38,3 @@ const DashboardPage = () => {
 
 export default DashboardPage;
 
-
-
-// class DashboardPage extends React.Component {
-//     render() {
-//         return(
-            
-//             <Map />
-            
-//         )
-
-//     }
-// }
-
-
-// export default DashboardPage;

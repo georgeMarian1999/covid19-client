@@ -4,6 +4,7 @@ import {useSelector} from "react-redux";
 import style from './CountiesTable.module.css';
 const CountiesTable = () =>{
     const counties = useSelector(state =>state.counties);
+    console.log(counties);
     useEffect(()=>{
         console.log(counties);
     },[])
