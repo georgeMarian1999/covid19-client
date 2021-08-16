@@ -1,4 +1,5 @@
 import {Redirect, Route, Switch} from "react-router";
+import LandingPage from "./LandingPage/LandingPage";
 import AdminPageStatistics from "./AdminPage/AdminPageStatistics";
 import LoginPage from "./LoginPage/LoginPage";
 
@@ -11,6 +12,9 @@ function App() {
 
         <Route exact path={'/login'}>
             <LoginPage/>
+        </Route>
+        <Route exact path='/home'>
+          <LandingPage></LandingPage>
         </Route>
         <Route path={'*'} render={()=> <Redirect to={'/'}/>}/>
     </Switch>
