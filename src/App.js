@@ -4,6 +4,7 @@ import LandingPage from "./LandingPage/LandingPage";
 import AdminPageStatistics from "./AdminPage/AdminPageStatistics";
 import LoginPage from "./LoginPage/LoginPage";
 import AdminBoard from "./AdminPage/AdminBoard";
+import AdminPageUsers from "./AdminPage/AdminPageUsers";
 
 function App() {
   return (
@@ -13,6 +14,10 @@ function App() {
         </Route>
         <Route exact path={'/adminboard'}>
             <AdminBoard/>
+        </Route>
+
+        <Route exact path='/adminboard/users'>
+            <AdminPageUsers/>
         </Route>
 
         <Route exact path={'/login'}>
