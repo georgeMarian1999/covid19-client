@@ -8,7 +8,8 @@ import axios from 'axios'
 export class LandingPage extends Component {
 
     state = {
-        symptomes : []
+        symptomes : [],
+        news: []
     }
 
     getData = async () => {
@@ -17,19 +18,26 @@ export class LandingPage extends Component {
         })
         .catch(err => console.log(err))
 
+        axios.get('http://localhost:5000/news').then(res => {
+            this.setState({news: res.data});
+            
+        })
+        .catch(err => console.log(err))
+
+
     }
     
     componentDidMount = () => {
-        this.getData();
+        this.getData();      
     }
 
     
     render() {
-        const {symptomes} = this.state;
+        const {symptomes, news} = this.state;
         return (
             <>
             <Header></Header>
-            <LandingPageFC symptomes= {symptomes}></LandingPageFC>
+            <LandingPageFC symptomes={symptomes} news={news}></LandingPageFC>
             <Footer></Footer>
             </>
         )

@@ -13,10 +13,23 @@
     margin: auto;
     margin: 20px;
     min-height: 300px;
-    padding: 20px;
+    padding: 50px;
 
 }
 
+.main .news .description{
+    font-weight: bold;
+}
+
+.main .news img{
+    width: 500px;
+    float: left;
+    margin-right: 30px;
+}
+
+.main .news .content {
+    text-align: justify;
+}
 
 .simp {
     display: flex;
@@ -73,4 +86,9 @@
 
 .numbered .active {
     background-color: tomato;
+}
+
+.title{
+    color: black;
+    text-decoration: none;
 }
