@@ -1,8 +1,10 @@
 import {Redirect, Route, Switch} from "react-router";
+import MedicPage from "./MedicPage/MedicPage";
 import LandingPage from "./LandingPage/LandingPage";
-import DashboardPage from "./DashboardPage/DashboardPage";
 import AdminPageStatistics from "./AdminPage/AdminPageStatistics";
 import LoginPage from "./LoginPage/LoginPage";
+import AdminBoard from "./AdminPage/AdminBoard";
+import AdminPageUsers from "./AdminPage/AdminPageUsers";
 
 function App() {
   return (
@@ -10,16 +12,24 @@ function App() {
         <Route exact path='/adminboard/statistics'>
             <AdminPageStatistics/>
         </Route>
+        <Route exact path={'/adminboard'}>
+            <AdminBoard/>
+        </Route>
+
+        <Route exact path='/adminboard/users'>
+            <AdminPageUsers/>
+        </Route>
+
         <Route exact path={'/login'}>
             <LoginPage/>
         </Route>
         <Route exact path='/home'>
           <LandingPage></LandingPage>
         </Route>
-        <Route path={'/dashboard'}>
-          <DashboardPage></DashboardPage>
+        <Route path='/medicboard'>
+            <MedicPage/>
         </Route>
-        <Route path={'*'} render={()=> <Redirect to={'/'}/>}/>
+        <Route path={'*'} render={()=> <Redirect to={'/home'}/>}/>
     </Switch>
   );
 }
