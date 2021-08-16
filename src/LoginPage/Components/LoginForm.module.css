@@ -1,0 +1,64 @@
+.formPage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-repeat: no-repeat;
+/*    back*/
+/*    background-image: url("https://image.shutterstock.com/image-photo/june-15-2020-editorial-use-260nw-1757165027.jpg");*/
+/*}*/}
+.form {
+    display: flex;
+    margin-top: 15%;
+    flex-direction: column;
+    align-items: center;
+    height: 50%;
+    width: 40%;
+}
+.inputWrapper {
+    display: flex;
+    width: 100%;
+    position: relative;
+    padding: 10px;
+    justify-content: center;
+    height: 15%;
+    align-items: center;
+}
+input {
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border: 1px groove gray;
+    padding-left: 7%;
+}
+input[type='submit']{
+    padding-left: 0;
+    margin-bottom: 10px;
+}
+.enabled {
+    background-color: dodgerblue;
+}
+.disabled {
+    background-color: gray;
+}
+.placeholderIcon {
+    position: absolute;
+    top: 34%;
+    left: 3%;
+    font-weight: lighter;
+}
+.imageWrapper {
+    height: 15%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.imageWrapper img {
+    width: 100%;
+}
+.buttonWrapper {
+    text-align: center;
+    flex-direction: column;
+}
