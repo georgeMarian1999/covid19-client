@@ -1,11 +1,11 @@
 import {Redirect, Route, Switch} from "react-router";
-import AdminPage from "./AdminPage/AdminPage";
+import AdminPageUsers from "./AdminPage/AdminPageUsers";
 
 function App() {
   return (
     <Switch>
         <Route exact path='/adminboard'>
-            <AdminPage/>
+            <AdminPageUsers/>
         </Route>
         <Route path={'*'} render={()=> <Redirect to={'/'}/>}/>
     </Switch>

@@ -1,3 +1,32 @@
-.hello{
-    color: red;
+
+.adminForm {
+    width: 30%;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.type{
+    display: flex;
+    justify-content: space-around;
+}
+
+.add{
+    cursor: pointer;
+}
+
+
+table, td, th {
+padding: 5px;
+}
+
+table {
+    width: 50%;
+    border-collapse: collapse;
+    text-align: center;
 }
