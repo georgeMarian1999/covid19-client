@@ -1,8 +1,9 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import StatisticsList from "./Components/Statistics/StatisticsList";
 import axios from 'axios';
 import {useDispatch} from "react-redux"
 import allActions from "../Store/Actions";
+
 const AdminPageStatistics = ()=> {
     const dispatch = useDispatch();
     useEffect(()=>{
