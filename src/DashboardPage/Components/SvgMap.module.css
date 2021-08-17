@@ -1,0 +1,7 @@
+.g{
+  position: "relative",
+
+}
+.g:hover .infos{
+  display: block;
+}

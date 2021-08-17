@@ -3,7 +3,7 @@ import Map from "./Components/Map";
 import axios from 'axios';
 import {useDispatch} from "react-redux"
 import allActions from "../Store/Actions";
-
+import Popup from './Components/Popup'
 
 
 
@@ -20,7 +20,7 @@ const DashboardPage = () => {
   const getCountiesList = async ()=> {
     await axios.get('http://localhost:5000/casesByCounty')
         .then((res)=>{
-            console.log(res.data);
+            // console.log(res.data);
             dispatch(allActions.countiesActions.loadCounties(res.data));
         })
         .catch((err)=>{
