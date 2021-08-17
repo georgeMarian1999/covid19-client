@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import LandingPageFC from './Components/LandingPageFC'
-import Footer from '../Footer/Footer'
-import Header from '../Header/Header'
 import axios from 'axios'
 
 
@@ -36,9 +34,9 @@ export class LandingPage extends Component {
         const {symptomes, news} = this.state;
         return (
             <>
-            <Header></Header>
+            
             <LandingPageFC symptomes={symptomes} news={news}></LandingPageFC>
-            <Footer></Footer>
+           
             </>
         )
     }
