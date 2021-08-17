@@ -4,10 +4,10 @@ import HeaderFC from './Components/HeaderFC'
 
 export default class Header extends Component {
     render() {
-        /* get from session the user*/
+        const user = JSON.parse(sessionStorage.getItem('crtUser'));
         return (
 
-            <HeaderFC></HeaderFC>
+            <HeaderFC user={user}></HeaderFC>
         )
     }
 }

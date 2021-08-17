@@ -28,7 +28,7 @@
     margin: 0;
   }
   
-  .navbar a:hover, .dropdown:hover .dropbtn {
+  .navbar .a:hover, .dropdown:hover .dropbtn {
     background-color: black;
   }
   
@@ -46,15 +46,22 @@
     display: block;
   }
 
-  .dropdown-content button {
+  .dropdown-content button{
     border: none;
     background-color: transparent;
     width: 100%;
     height: 40px;
     font-size: 12pt;
   }
+  .dropdown-content a {
+    border: none;
+    color: black;
+    background-color: transparent;
+    width: 100%;
+    font-size: 12pt;
+  }
 
-  .dropdown-content button.logOut:hover {
+  .dropdown-content button.logOut:hover, .dropdown-content a.logIn:hover {
     background-color: rgb(133, 228, 245);
     color: white;
   }
@@ -70,3 +77,9 @@
   .logo span{
     color:rgb(133, 228, 245);
   }
+
+  .logina {
+    height: 20px;
+  }
+
+ 
