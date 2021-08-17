@@ -5,6 +5,7 @@ import AdminPageStatistics from "./AdminPage/AdminPageStatistics";
 import LoginPage from "./LoginPage/LoginPage";
 import AdminBoard from "./AdminPage/AdminBoard";
 import AdminPageUsers from "./AdminPage/AdminPageUsers";
+import DashboardPage from "./DashboardPage/DashboardPage";
 
 function App() {
   return (
@@ -28,6 +29,9 @@ function App() {
         </Route>
         <Route path='/medicboard'>
             <MedicPage/>
+        </Route>
+        <Route path={'/dashboard'}>
+          <DashboardPage></DashboardPage>
         </Route>
         <Route path={'*'} render={()=> <Redirect to={'/home'}/>}/>
     </Switch>
