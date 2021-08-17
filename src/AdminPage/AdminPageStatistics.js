@@ -4,6 +4,9 @@ import axios from 'axios';
 import {useDispatch} from "react-redux"
 import allActions from "../Store/Actions";
 
+const LOCAL_URL = 'http://localhost:5000/';
+const ONLINE_URL = 'https://covid19-info-internship.herokuapp.com/';
+
 const AdminPageStatistics = ()=> {
     const dispatch = useDispatch();
     useEffect(()=>{
