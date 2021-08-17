@@ -5,26 +5,28 @@ import AdminPageStatistics from "./AdminPage/AdminPageStatistics";
 import LoginPage from "./LoginPage/LoginPage";
 import AdminBoard from "./AdminPage/AdminBoard";
 import AdminPageUsers from "./AdminPage/AdminPageUsers";
+import AdminRoute from "./Common/AdminRoute";
 
 function App() {
   return (
     <Switch>
-        <Route exact path='/adminboard/statistics'>
-            <AdminPageStatistics/>
-        </Route>
-        <Route exact path={'/adminboard'}>
-            <AdminBoard/>
-        </Route>
 
-        <Route exact path='/adminboard/users'>
+        <AdminRoute exact path='/adminboard/statistics'>
+            <AdminPageStatistics/>
+        </AdminRoute>
+        <AdminRoute exact path={'/adminboard'}>
+            <AdminBoard/>
+        </AdminRoute>
+
+        <AdminRoute exact path='/adminboard/users'>
             <AdminPageUsers/>
-        </Route>
+        </AdminRoute>
 
         <Route exact path={'/login'}>
             <LoginPage/>
         </Route>
         <Route exact path='/home'>
-          <LandingPage></LandingPage>
+            <LandingPage/>
         </Route>
         <Route path='/medicboard'>
             <MedicPage/>

@@ -40,8 +40,10 @@ const HistoricalTabel = ({updateHistoricalData}) =>{
         }
     ];
     return(
-        <div className={style.HistoricalTable}>
+        <div className={style.historicalTable}>
+            <h2>Historical Data</h2>
             <DataGrid
+                className={style.table}
                 onCellEditCommit={updateHistoricalData}
                 rows={historical}
                 columns={columns}
