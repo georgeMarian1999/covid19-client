@@ -3,7 +3,7 @@ import SVG_DATA from "../SvgData/SvgData";
 import Popup from "./Popup";
 import style from "./SvgMap.module.css"
 
-const SvgMap = () => {
+const SvgMap = ({counties}) => {
   return(
     <div>
               <svg
@@ -217,7 +217,7 @@ const SvgMap = () => {
                 <path d={county.d} id={county.id} name={county.name}>
                   
                 </path>
-                <Popup county_code={county.id}/>
+                <Popup counties={counties} county_code={county.id}/>
                 </g>
             )
             }

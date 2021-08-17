@@ -6,6 +6,7 @@ import allActions from "../Store/Actions";
 const ONLINE_URL = 'https://covid19-info-internship.herokuapp.com/';
 const DashboardPage = () => {
   const dispatch = useDispatch();
+  const [counties,setCounties] = React.useState([]);
   useEffect(()=>{
     getCountiesList();
 
@@ -13,10 +14,10 @@ const DashboardPage = () => {
 
 
   const getCountiesList = async ()=> {
-    await axios.get(ONLINE_URL+'casesByCounty')
+     axios.get(ONLINE_URL+'casesByCounty')
         .then((res)=>{
-            // console.log(res.data);
-            dispatch(allActions.countiesActions.loadCounties(res.data));
+            //dispatch(allActions.countiesActions.loadCounties(res.data));
+            setCounties(res.data);
         })
         .catch((err)=>{
             console.log(err);
@@ -26,7 +27,7 @@ const DashboardPage = () => {
 
   return(
     <>
-    <Map />
+    <Map counties={counties} />
     </>
   )
 }
