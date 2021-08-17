@@ -1,4 +1,15 @@
-.HistoricalTable {
-    height: 400px;
+.historicalTable {
+    height: 500px;
     width: 100%;
+    background-color: white;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.table {
+    width: 85%;
+    margin-bottom: 20px;
 }

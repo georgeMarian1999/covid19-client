@@ -1,17 +1,17 @@
-import React from 'react';
 import {Redirect, Route} from "react-router";
 
-const ProtectedRoute = ({children,...rest}) =>{
+const AdminRoute = ({children,...rest}) =>{
+    const user = JSON.parse(sessionStorage.getItem("crtUser"))
     return (
         <Route
             {...rest}
             render={({ location }) =>
-                sessionStorage.getItem("crtUser") ? (
+                user.type === 'admin' ? (
                     children
                 ) : (
                     <Redirect
                         to={{
-                            pathname: "/login",
+                            pathname: "/"+user.type+'board',
                             state: { from: location }
                         }}
                     />
@@ -20,4 +20,5 @@ const ProtectedRoute = ({children,...rest}) =>{
         />
     );
 }
-export default ProtectedRoute;
+
+export default AdminRoute;
