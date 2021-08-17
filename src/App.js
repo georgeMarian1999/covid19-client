@@ -47,7 +47,9 @@ function App() {
             <Footer/>
         </Route>
         <Route path='/medicboard'>
+            <Header/>
             <MedicPage/>
+            <Footer/>
         </Route>
         <Route path={'*'} render={()=> <Redirect to={'/home'}/>}/>
     </Switch>
