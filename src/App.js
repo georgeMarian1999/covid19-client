@@ -42,7 +42,7 @@ function App() {
         <Route exact path='/home'>
             <LandingPage/>
         </Route>
-        <Route path='/medicboard'>
+        <Route exact path='/medicboard'>
             <MedicPage/>
         </Route>
         <Route path={'*'} render={()=> <Redirect to={'/home'}/>}/>

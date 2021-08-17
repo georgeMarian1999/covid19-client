@@ -3,7 +3,7 @@ import style from './NewsList.module.css';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import EditRoundedIcon from '@material-ui/icons/EditRounded';
 
-const NewsList = ({ news}) => {
+const NewsList = ({ news, onChangeEditTitle, onChangeEditDescription, onChangeEditLink, onChangeEditContent, onChangeEditSource }) => {
     return (
         <table className={style.newsTable}>
             <thead className={style.thead}>
@@ -28,55 +28,60 @@ const NewsList = ({ news}) => {
                             <input
                                 className={style.id}
                                 type="text"
+                                name='id'
                                 value={newsRow.id}
-                                // onChange={onChangeEditTitle}
                             />
                         </td>
                         <td className={style.td}>
                             <textarea
                                 className={style.title}
                                 type="text"
+                                name='title'
                                 value={newsRow.title}
-                                // onChange={onChangeEditTitle}
+                                onChange={onChangeEditTitle}
                             />
                         </td>
                         <td className={style.td}>
                          <textarea
                             type="text"
+                            name='description'
                             value={newsRow.description}
-                            // onChange={onChangeEditDescription}
+                            onChange={onChangeEditDescription}
                           />
                         </td>
                         <td className={style.td}>
                             <textarea
                                 className={style.link}
                                 type="text"
+                                name='link'
                                 value={newsRow.link}
-                                // onChange={onChangeEditLink}
+                                onChange={onChangeEditLink}
                             />
                         </td>
                         <td className={style.td}>
                             <textarea
                                 className={style.content}
                                 type="text"
+                                name='content'
                                 value={newsRow.content}
-                                // onChange={onChangeEditContent}
+                                onChange={onChangeEditContent}
                             />
                         </td>
                         <td className={style.td}>
                             <input
                                 className={style.pubdate}
                                 type="text"
+                                name='pubdate'
                                 value={newsRow.pubdate}
-                                // onChange={onChangeEditDate}
                             />
                         </td>
                         <td className={style.td}>
                             <input
                                 className={style.source}
                                 type="text"
+                                name='source'
                                 value={newsRow.source}
-                                // onChange={onChangeEditSource}
+                                onChange={onChangeEditSource}
                             />
                         </td>
                         <td><EditRoundedIcon className={style.icon} /**onClick={saveChanges}*/></EditRoundedIcon></td>

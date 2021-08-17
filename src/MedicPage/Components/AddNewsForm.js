@@ -8,6 +8,7 @@ const AddNewsForm = (props) => {
     const date = useRef('');
     const link = useRef('');
     const imageurl = useRef('');
+    const source = useRef('');
     const content = useRef('');
 
     const submitForm = (e) => {
@@ -16,13 +17,23 @@ const AddNewsForm = (props) => {
         const newsRow = {
             title: title.current.value,
             description: description.current.value,
-            date: date.current.value,
+            pubdate: date.current.value,
             link: link.current.value,
             imageurl: imageurl.current.value,
+            source: source.current.value,
             content: content.current.value
         }
         props.onAddNews(newsRow);
-    }
+        console.log('ana', date.current.value);
+
+        title.current.value = '';
+        description.current.value = '';
+        date.current.value = '';
+        link.current.value = '';
+        imageurl.current.value = '';
+        source.current.value = '';
+        content.current.value = '';
+    };
 
     return (
         <form className={style.formContent} onSubmit={submitForm}>
@@ -64,6 +75,14 @@ const AddNewsForm = (props) => {
                     required
                 />
             </div>
+            <div>
+                <input 
+                    className={style.source}
+                    placeholder="Source"
+                    ref={source}
+                    required
+                />
+            </div>    
             <div>
                 <input 
                     className={style.content}

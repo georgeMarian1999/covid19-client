@@ -17,13 +17,27 @@ const MedicPage = () => {
             });
     }
 
+     // Add user
+     const addNews = async (newsRow) => {
+        try {
+             await fetch("http://localhost:5000/addNews", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(newsRow),
+            });
+        } catch (err) {
+            console.error(err.message);
+        }
+        setNews([...news, newsRow]);
+    }
+
     useEffect(() => {
         getNews();
     }, []);
 
     return <div className="mainContainer">
         <div>
-            <AddNewsForm/>
+            <AddNewsForm onAddNews={addNews}/>
         </div>
 
         <div>
