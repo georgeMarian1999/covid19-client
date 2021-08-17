@@ -11,8 +11,8 @@ const Popup = ({county_code}) => {
         console.log(counties);
 
         console.log(county_code, typeof county_code)
-        console.log(counties.findIndex(el => el.county_code == county_code))
-      setIndex(counties.findIndex(el => el.county_code == county_code))
+        console.log(counties.findIndex(el => el.county_code === county_code))
+      setIndex(counties.findIndex(el => el.county_code === county_code))
     }, []);
   
     

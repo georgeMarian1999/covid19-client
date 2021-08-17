@@ -3,22 +3,17 @@ import Map from "./Components/Map";
 import axios from 'axios';
 import {useDispatch} from "react-redux"
 import allActions from "../Store/Actions";
-import Popup from './Components/Popup'
-
-
-
+const ONLINE_URL = 'https://covid19-info-internship.herokuapp.com/';
 const DashboardPage = () => {
   const dispatch = useDispatch();
   useEffect(()=>{
-    getCountiesList()
-        .then((r)=>{
-        });
+    getCountiesList();
 
 },[])
 
 
   const getCountiesList = async ()=> {
-    await axios.get('http://localhost:5000/casesByCounty')
+    await axios.get(ONLINE_URL+'casesByCounty')
         .then((res)=>{
             // console.log(res.data);
             dispatch(allActions.countiesActions.loadCounties(res.data));

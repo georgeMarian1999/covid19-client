@@ -16,12 +16,16 @@ function App() {
 
         <Route exact path='/adminboard/statistics'>
             <Header/>
+            <AdminPageStatistics/>
             <Footer/>
         </Route>
         <Route exact path={'/adminboard'}>
             <Header/>
             <AdminBoard/>
             <Footer/>
+        </Route>
+        <Route exact path={'/dashboard'}>
+            <DashboardPage/>
         </Route>
 
         <Route exact path='/adminboard/users'>
