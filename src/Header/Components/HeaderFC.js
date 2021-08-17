@@ -8,7 +8,8 @@ function HeaderFC({user}) {
             <a href="/" className='logoa' >Coro<span>News</span></a>
             <a href="/adminboard" className='a'>Dashboard</a>
 
-            {(user!==null)? (<><a href="/medicpage">Medic page</a>
+            {(user!==null)? (<>
+            <a href="/medicboard">Medic page</a>
             <a href="/adminboard" className='a'>Admin board</a>
             <a href="/operator" className='a'>Operator page</a>
             
@@ -26,9 +27,9 @@ function HeaderFC({user}) {
             
             <div className="dropdown-content right">
                 <button>You cant freely register</button>
-                <a href='/login'>
-                <button className='logOut'>Log in</button>
-                </a>
+                
+                <a href='/login' className='logIn'>Log in</a>
+                
                 
             </div>
             </>)}
