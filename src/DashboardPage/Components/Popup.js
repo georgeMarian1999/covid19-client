@@ -15,7 +15,7 @@ const Popup = ({county_code,counties}) => {
 
     return(
         <div className={style.infos}>
-             {counties[index].county}
+             {counties[index]!==undefined && counties[index].county}
         </div>
     )
 }
