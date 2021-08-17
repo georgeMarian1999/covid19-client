@@ -23,9 +23,11 @@ function App() {
             <Header/>
             <AdminBoard/>
             <Footer/>
-        </Route>
+            </Route>
         <Route exact path={'/dashboard'}>
+          <Header/>
             <DashboardPage/>
+            <Footer/>
         </Route>
 
         <Route exact path='/adminboard/users'>
@@ -40,10 +42,18 @@ function App() {
             <Footer/>
         </Route>
         <Route exact path='/home'>
+            <Header/>
             <LandingPage/>
+            <Footer/>
         </Route>
+<<<<<<< HEAD
         <Route exact path='/medicboard'>
+=======
+        <Route path='/medicboard'>
+            <Header/>
+>>>>>>> e36d303f31dade5fa0dd52af3b93197530baad5b
             <MedicPage/>
+            <Footer/>
         </Route>
         <Route path={'*'} render={()=> <Redirect to={'/home'}/>}/>
     </Switch>
