@@ -13,26 +13,12 @@ const AdminPageStatistics = ()=> {
         getHistoricalData();
     },[])
     const updateCountyData = (e) =>{
-
-        console.log(e.id,e.value);
-        let data;
-        let subroute;
-        if(e.field ==='total_county'){
-            data = {
-                "id": e.id,
-                "total_county": e.value
-            };
-            subroute = 'update/county/cases';
-
-        }
-        else {
-             data = {
-                "id": e.id,
-                "total_healed": e.value
-            };
-            subroute = 'update/county/healed';
-        }
-        axios.put(LOCAL_URL+subroute,data)
+        let data = {
+            "id": e.id,
+        };
+        data[e.field] = Number(e.value);
+        let subroute = 'update/county/'+e.field;
+        axios.put(ONLINE_URL+subroute,data)
             .then((res)=>{
                 console.log(res);
             })
@@ -49,19 +35,18 @@ const AdminPageStatistics = ()=> {
         let subroute = 'update/historical/'+e.field;
 
         console.log(data,subroute);
-        // axios.put(LOCAL_URL+subroute,data)
-        //     .then((res)=>{
-        //         console.log(res);
-        //     })
-        //     .catch(err =>{
-        //         console.log(err);
-        //     })
+        axios.put(ONLINE_URL+subroute,data)
+            .then((res)=>{
+                console.log(res);
+            })
+            .catch(err =>{
+                console.log(err);
+            })
     }
     const getCountiesList = async ()=> {
         setLoading(true);
        await axios.get(ONLINE_URL+'casesByCounty')
            .then((res)=>{
-               console.log(res.data);
                setLoading(false);
                dispatch(allActions.countiesActions.loadCounties(res.data));
            })

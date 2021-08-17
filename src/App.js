@@ -6,32 +6,40 @@ import LoginPage from "./LoginPage/LoginPage";
 import AdminBoard from "./AdminPage/AdminBoard";
 import AdminPageUsers from "./AdminPage/AdminPageUsers";
 import DashboardPage from "./DashboardPage/DashboardPage";
+import Header from "./Header/Header";
+import Footer from "./Footer/Footer";
+import Operator from "./OperatorPage/Operator";
 
 function App() {
   return (
     <Switch>
+
         <Route exact path='/adminboard/statistics'>
-            <AdminPageStatistics/>
+            <Header/>
+            <Footer/>
         </Route>
         <Route exact path={'/adminboard'}>
+            <Header/>
             <AdminBoard/>
+            <Footer/>
         </Route>
 
         <Route exact path='/adminboard/users'>
+            <Header/>
             <AdminPageUsers/>
+            <Footer/>
         </Route>
 
         <Route exact path={'/login'}>
+            <Header/>
             <LoginPage/>
+            <Footer/>
         </Route>
         <Route exact path='/home'>
-          <LandingPage></LandingPage>
+            <LandingPage/>
         </Route>
         <Route path='/medicboard'>
             <MedicPage/>
-        </Route>
-        <Route path={'/dashboard'}>
-          <DashboardPage></DashboardPage>
         </Route>
         <Route path={'*'} render={()=> <Redirect to={'/home'}/>}/>
     </Switch>

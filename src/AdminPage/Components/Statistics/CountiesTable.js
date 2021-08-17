@@ -45,7 +45,9 @@ const CountiesTable = ({updateCountyData,loading}) =>{
     ];
     return(
         <div className={style.countiesTable}>
+            <h2>Status per each county</h2>
             <DataGrid
+                className={style.table}
                 loading={loading}
                 onCellEditCommit={updateCountyData}
                 rows={counties}
