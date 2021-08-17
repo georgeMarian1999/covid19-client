@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { act } from 'react-dom/cjs/react-dom-test-utils.production.min';
 import './LandingPage.css'
 
 function LandingPageFC( {symptomes, news}) {
@@ -99,7 +98,7 @@ function LandingPageFC( {symptomes, news}) {
                 </div>
                 
                 
-                <a href={n.link} className='title' target='_blank'>
+                <a href={n.link} className='title' target='_blank' rel='noreferrer'>
                 <h1>{n.title}</h1>
                 <img src={n.imageurl} alt="" />
                 </a>

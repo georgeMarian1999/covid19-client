@@ -8,6 +8,7 @@ import AdminPageUsers from "./AdminPage/AdminPageUsers";
 import DashboardPage from "./DashboardPage/DashboardPage";
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
+import Operator from "./OperatorPage/Operator";
 
 function App() {
   return (
@@ -42,6 +43,11 @@ function App() {
         <Route path='/medicboard'>
             <Header/>
             <MedicPage/>
+            <Footer/>
+        </Route>
+        <Route path='/operator'>
+            <Header/>
+            <Operator/>
             <Footer/>
         </Route>
         <Route path={'/dashboard'}>

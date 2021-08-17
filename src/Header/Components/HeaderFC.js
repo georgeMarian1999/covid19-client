@@ -10,7 +10,7 @@ function HeaderFC({user}) {
     return (
         <div className="navbar">
             <a href="/" className='logoa' >Coro<span>News</span></a>
-            <a href="/adminboard" className='a'>Dashboard</a>
+            <a href="/dashboard" className='a'>Dashboard</a>
 
             {(user!==null)? (<>
 
@@ -30,10 +30,10 @@ function HeaderFC({user}) {
             </>):(<></>)}
             <div className="dropdown">
             {(user!==null)? (<>
-            <button className="dropbtn right">username</button>
+            <button className="dropbtn right">{user.username}</button>
 
             <div className="dropdown-content right">
-                <button>usertype</button>
+                <button>{user.type}</button>
                 <button className='logOut'  onClick={logOut}>Log out</button>
                 
             </div>
