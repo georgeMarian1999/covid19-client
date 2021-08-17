@@ -5,25 +5,35 @@ import AdminPageStatistics from "./AdminPage/AdminPageStatistics";
 import LoginPage from "./LoginPage/LoginPage";
 import AdminBoard from "./AdminPage/AdminBoard";
 import AdminPageUsers from "./AdminPage/AdminPageUsers";
-import AdminRoute from "./Common/AdminRoute";
+import DashboardPage from "./DashboardPage/DashboardPage";
+import Header from "./Header/Header";
+import Footer from "./Footer/Footer";
+import Operator from "./OperatorPage/Operator";
 
 function App() {
   return (
     <Switch>
 
-        <AdminRoute exact path='/adminboard/statistics'>
-            <AdminPageStatistics/>
-        </AdminRoute>
-        <AdminRoute exact path={'/adminboard'}>
+        <Route exact path='/adminboard/statistics'>
+            <Header/>
+            <Footer/>
+        </Route>
+        <Route exact path={'/adminboard'}>
+            <Header/>
             <AdminBoard/>
-        </AdminRoute>
+            <Footer/>
+        </Route>
 
-        <AdminRoute exact path='/adminboard/users'>
+        <Route exact path='/adminboard/users'>
+            <Header/>
             <AdminPageUsers/>
-        </AdminRoute>
+            <Footer/>
+        </Route>
 
         <Route exact path={'/login'}>
+            <Header/>
             <LoginPage/>
+            <Footer/>
         </Route>
         <Route exact path='/home'>
             <LandingPage/>
