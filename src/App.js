@@ -10,21 +10,23 @@ import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
 import Operator from "./OperatorPage/Operator";
 import AdminRoute from "./Common/AdminRoute";
+import ProtectedRoute from "./Common/ProtectedRoute";
 
 function App() {
   return (
     <Switch>
-
         <AdminRoute exact path='/adminboard/statistics'>
             <Header/>
             <AdminPageStatistics/>
             <Footer/>
         </AdminRoute>
+
         <AdminRoute exact path={'/adminboard'}>
             <Header/>
             <AdminBoard/>
             <Footer/>
         </AdminRoute>
+
         <Route exact path={'/dashboard'}>
           <Header/>
             <DashboardPage/>
@@ -42,16 +44,19 @@ function App() {
             <LoginPage/>
             <Footer/>
         </Route>
+
         <Route exact path='/home'>
             <Header/>
             <LandingPage/>
             <Footer/>
         </Route>
-        <Route path='/medicboard'>
+
+        <ProtectedRoute path='/medicboard'>
             <Header/>
             <MedicPage/>
             <Footer/>
-        </Route>
+        </ProtectedRoute>
+
         <Route path={'*'} render={()=> <Redirect to={'/home'}/>}/>
     </Switch>
   );

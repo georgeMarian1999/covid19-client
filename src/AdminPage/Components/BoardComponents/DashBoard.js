@@ -5,56 +5,71 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import AssessmentIcon from '@material-ui/icons/Assessment';
 import axios from "axios";
 import {Link} from "react-router-dom";
+import GroupIcon from '@material-ui/icons/Group';
+import {CircularProgress} from "@material-ui/core";
 const ONLINE_URL = 'https://covid19-info-internship.herokuapp.com/';
 const DashBoard = () =>{
     const [cases,setCases] = useState(0);
     const [vaccines,setVaccines] = useState(0);
     const [lastfetch,setLastFetch] = useState('');
+    const [nrUsers,setNrUsers] = useState(0);
+    const [loading,setLoading] = useState(false);
     useEffect( () => {
         getData();
     },[])
     async function getData() {
-        const promise1 =await getTotalCases();
-        const promise2 = getTotalImmune();
-        const promise3 = getLastFetch();
+        setLoading(true);
+        const url1 = ONLINE_URL + 'vaccine/total';
+        const url2 = ONLINE_URL + 'vaccine/total';
+        const url3 = ONLINE_URL + 'fetchdate';
+        const url4 = ONLINE_URL +'getAllUsers';
 
+        const promise1 = axios.get(url1);
+        const promise2 = axios.get(url2);
+        const promise3 = axios.get(url3);
+        const promise4 = axios.get(url4);
 
-        Promise.all([promise1])
-            .then((values) => {
-                console.log(values);
-            })
-    }
-    const getTotalCases =  async () =>{
-        const url = ONLINE_URL + 'cases/total';
-         axios.get(url)
-            .then((res)=>{
+        axios.all([promise1, promise2, promise3,promise4]).then(axios.spread((...responses) => {
+            const responseOne = responses[0]
+            const responseTwo = responses[1]
+            const responesThree = responses[2]
+            const responseFour = responses[3];
+            console.log(responseOne,responseTwo,responesThree,responseFour);
+            setCases(responseOne.data.total);
+            setVaccines(responseTwo.data.total);
+            setLastFetch(responesThree.data.fetchdate);
+            setNrUsers(responseFour.data.length);
+            setLoading(false);
+        })).catch(errors => {
+            console.log(errors);
+        })
 
-                setCases(res.data[0].totalcases);
-                // return new Promise(resolve => resolve(res.data));
+    }
 
-            })
-            .catch(err=>{
-                return Promise.reject(err);
-            })
-    }
-    const getTotalImmune = async () =>{
-        const url = ONLINE_URL + 'vaccine/total';
-        axios.get(url)
-            .then(res=>{
-                console.log(res.data);
-                setVaccines(res.data.total);
-            })
-    }
-    const getLastFetch = async () =>{
-        const url = ONLINE_URL + 'fetchdate';
-        await axios.get(url)
-            .then(res=>{
-                console.log(res.data);
-                setLastFetch(res.data.fetchdate);
-            })
-    }
     return(
         <div className={style.adminBoard}>
+            <div className={style.right}>
+                <div>
+                    <img
+                        className={style.rightImage}
+                        src={'http://localhost:3000/whologo.png'}
+                        alt={'WHO'}/>
+                </div>
+                <div className={style.data+ ' '+ style.rightData+ ' '+style.usersTotal}>
+                    <div className={style.dataTitle}>
+                        <p>Registered users</p>
+                        <GroupIcon/>
+                    </div>
+                    <img
+                        className={style.image}
+                        width={100}
+                        src={'http://localhost:3000/users.png'}/>
+                    <div className={style.numberWrapper}>
+                        {!loading &&<p>{nrUsers}</p>}
+                        {loading && <CircularProgress/>}
+                    </div>
+                </div>
+            </div>
             <div className={style.latestData}>
                 <div className={style.data+' '+style.cases}>
                     <div className={style.dataTitle}>
@@ -66,7 +81,8 @@ const DashBoard = () =>{
                         width={100}
                         src={'http://localhost:3000/evolution_graph.jpg'}/>
                     <div className={style.numberWrapper}>
-                        <p>{cases}</p>
+                        {!loading && <p>{cases}</p>}
+                        {loading && <CircularProgress/>}
                     </div>
 
                 </div>
@@ -80,7 +96,8 @@ const DashBoard = () =>{
                         width={100}
                         src={'http://localhost:3000/vaccine.png'}/>
                     <div className={style.numberWrapper}>
-                        <p>{vaccines}</p>
+                        {!loading && <p>{vaccines}</p>}
+                        {loading && <CircularProgress/>}
                     </div>
                 </div>
                 <div className={style.data+' '+style.date}>
@@ -93,7 +110,8 @@ const DashBoard = () =>{
                         width={100}
                         src={'http://localhost:3000/data.png'}/>
                     <div className={style.numberWrapper}>
-                        <p>{lastfetch}</p>
+                        {!loading &&<p>{lastfetch}</p>}
+                        {loading && <CircularProgress/>}
                     </div>
                 </div>
             </div>

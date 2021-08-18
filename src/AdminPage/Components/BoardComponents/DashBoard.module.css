@@ -52,6 +52,7 @@
     display: flex;
     align-items: center;
     width: 70%;
+    margin-top:30px;
     height: 300px;
     justify-content: space-around;
 }
@@ -71,4 +72,34 @@
 }
 .users {
     background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+}
+.usersTotal {
+    background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+}
+.right {
+    position: absolute;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+    top:0;
+    height: 800px;
+    z-index: 3;
+    width: 25%;
+
+    background: rgba( 255, 255, 255, 0.20 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 10.0px );
+    -webkit-backdrop-filter: blur( 10.0px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+.rightImage {
+    width: 400px;
+    height: 400px;
+}
+.rightData {
+    width: 80%;
 }
