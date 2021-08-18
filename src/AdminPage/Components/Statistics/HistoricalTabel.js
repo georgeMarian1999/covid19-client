@@ -2,7 +2,7 @@ import React from 'react';
 import {useSelector} from "react-redux";
 import style from './HistoricalTabel.module.css';
 import {DataGrid} from "@material-ui/data-grid";
-const HistoricalTabel = () =>{
+const HistoricalTabel = ({updateHistoricalData}) =>{
     const historical = useSelector(state =>state.historical);
     const columns = [
         { field: 'id', headerName: 'ID', width: 40 },
@@ -40,11 +40,14 @@ const HistoricalTabel = () =>{
         }
     ];
     return(
-        <div className={style.HistoricalTable}>
+        <div className={style.historicalTable}>
+            <h2>Historical Data</h2>
             <DataGrid
+                className={style.table}
+                onCellEditCommit={updateHistoricalData}
                 rows={historical}
                 columns={columns}
-                pageSize={6}
+                pageSize={5}
                 disableSelectionOnClick
             />
         </div>

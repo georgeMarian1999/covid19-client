@@ -2,8 +2,9 @@ import React, {useEffect} from 'react';
 import {DataGrid} from "@material-ui/data-grid";
 import {useSelector} from "react-redux";
 import style from './CountiesTable.module.css';
-const CountiesTable = () =>{
+const CountiesTable = ({updateCountyData,loading}) =>{
     const counties = useSelector(state =>state.counties);
+    console.log(counties);
     useEffect(()=>{
         console.log(counties);
     },[])
@@ -44,7 +45,11 @@ const CountiesTable = () =>{
     ];
     return(
         <div className={style.countiesTable}>
+            <h2>Status per each county</h2>
             <DataGrid
+                className={style.table}
+                loading={loading}
+                onCellEditCommit={updateCountyData}
                 rows={counties}
                 columns={columns}
                 pageSize={5}

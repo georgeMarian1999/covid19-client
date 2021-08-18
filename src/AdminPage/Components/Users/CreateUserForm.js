@@ -6,12 +6,6 @@ const CreateUserForm = (props) => {
     const password = useRef("");
     const type = useRef("");
 
-    // if (props.editUser.username !== undefined) {
-    //     username.current.value = props.editUser.username;
-    //     password.current.value = props.editUser.password
-    //     type.current.value = props.editUser.type;
-    // }
-
     const submitForm = (e) => {
 
         e.preventDefault();
@@ -25,8 +19,6 @@ const CreateUserForm = (props) => {
             password: newPassword,
             type: newType,
         };
-
-        console.log(user);
 
         props.onCreateUser(user);
 

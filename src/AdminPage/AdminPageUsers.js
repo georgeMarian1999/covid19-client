@@ -11,6 +11,8 @@ const AdminPageUsers = () => {
     const deletedUser = useSelector(state => state.removeUsersReducer);
     const edit = useSelector(state => state.editUsersReducer);
 
+    console.log(edit);
+
     // Get all users
     const getAllUsers = async () => {
         await axios.get("http://localhost:5000/getAllUsers")

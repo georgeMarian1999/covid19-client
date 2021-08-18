@@ -26,11 +26,13 @@ class LoginPage  extends React.Component {
             .then((res)=> {
                 this.stopLoading();
                 const location = '/'+res.data.type+'board';
-                console.log(location);
+                //alert(location);
+                sessionStorage.setItem('crtUser',JSON.stringify(res.data));
                 window.location.replace(location);
             })
             .catch((error)=> {
                 this.stopLoading();
+                sessionStorage.removeItem('crtUser');
                 if(error.response){
                     this.setState({
                         error:error.response.data
