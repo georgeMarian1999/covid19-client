@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
 import SVG_DATA from "../SvgData/SvgData";
 import Popup from "./Popup";
 import style from "./SvgMap.module.css";
@@ -13,10 +13,13 @@ const SvgMap = ({counties}) => {
     return e.target.getAttribute('id')
   }
 
+
+  
+
   const getXandYOnMouseMove = (e) =>{
     let cursor_x = e.pageX;
     let cursor_y = e.pageY;
-    console.log('pagex' + e.pageX, 'page y' + e.pageY)
+    console.log('pagex ' + e.pageX, 'page y ' + e.pageY)
     
   }
 
@@ -31,23 +34,19 @@ const SvgMap = ({counties}) => {
           {SVG_DATA.map((county) => {
             return(
               <g key={county.id} className={style.g} 
-              onMouseOver={getHoveredCountyHandler, getXandYOnMouseMove}
+              onMouseMove={getXandYOnMouseMove}
+              onMouseOver={getHoveredCountyHandler}
               onMouseEnter={() => setIsShown(true)}
               onMouseLeave={() => setIsShown(false)}>
                 <path d={county.d} id={county.id} name={county.name}></path>
                 
                 {/* {isShown && ( */}
-                <Popup counties={counties} county_code={county.id} setSelectedCountry={setSelectedCountry}/>
+                <Popup counties={counties} county_code={county.id}/>
                 {/* )} */}
                 </g>                
             )
             }
             )}
-
-
-          <circle cx="701.8" cy="293.1" id="0"></circle>
-          <circle cx="589.2" cy="57.6" id="1"></circle>
-          <circle cx="416.9" cy="151.6" id="2"></circle>
 
           </svg>
     </div>
