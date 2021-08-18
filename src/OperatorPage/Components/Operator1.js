@@ -1,19 +1,31 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 import React from 'react'
 import { useState } from 'react/cjs/react.development'
 import './Operator1.css'
+import { faSpinner } from '@fortawesome/free-solid-svg-icons'
+import { getByAltText } from '@testing-library/react';
 function Operator1({daily}) {
 
     const [active, setActive] = useState(0);
     const [cases, setCases] = useState('');
     const [tests, setTests] = useState('');
+    const [now, setNow] = useState({ case : daily[0].cases, test: daily[0].tests})
+    const [loading, setLoading] = useState(false);
+
 
     async function loadDailyCases(event){
         event.preventDefault();
         let result = window.confirm('This action will pull data from official sites about daily cases and tests for the last 40 days');
         if(result){
             await axios.post('http://localhost:5000/UpdateCases');
-            window.location.reload();
+            setLoading(true);
+            
+            
+            setTimeout(function(){setLoading(false);
+            window.location.reload()}, 10000);
+                
+          
         }
         
        
@@ -25,7 +37,13 @@ function Operator1({daily}) {
         
         if(result){
             await axios.post('http://localhost:5000/UpdateNews');
-            window.location.replace('/home');
+
+            setLoading(true);
+            
+            
+            setTimeout(function(){setLoading(false);
+            window.location.replace('/home');}, 10000);
+            
         }
         
        
@@ -37,7 +55,12 @@ function Operator1({daily}) {
         
         if(result){
             await axios.put('http://localhost:5000/update');
-            window.location.replace('/dashboard');
+            setLoading(true);
+            
+            
+            setTimeout(function(){setLoading(false);
+            window.location.replace('/dashboard');}, 10000);
+
         }
         
        
@@ -46,6 +69,7 @@ function Operator1({daily}) {
     function selectChangeHandler(event){
         event.preventDefault();
         setActive(event.target.value);
+        setNow({ case : daily[active].cases, test: daily[active].tests})
     }
 
     function onSumbitHandler(event){
@@ -55,7 +79,7 @@ function Operator1({daily}) {
             "tests": tests, 
             
         };
-        if(active!==0){
+        if(active!=0){
             data.date = daily[active-1].date;
         }
         else{
@@ -69,6 +93,7 @@ function Operator1({daily}) {
             alert('Modifications saved, refresh page to see the new data'),
             daily[active].cases = cases,
             daily[active].tests = tests,
+            setNow({ case : cases, test: tests})
         ).catch(_ => {
             alert('Something went wrong');
         });
@@ -84,8 +109,17 @@ function Operator1({daily}) {
         setTests(event.target.value);
     }
     return (
+
+        
         <div className='operator1 main'>
             
+        {(loading)? (<>
+        <div className='loading'>
+            <FontAwesomeIcon icon={faSpinner} className='spinner'/>
+            Yhe server is working on updates... This may take a while
+            </div>
+        </>):(<></>)}
+
         <h1>See this day:
             <select name="" id="" onChange={selectChangeHandler}> 
                 {daily.map((d, id) => (
@@ -98,11 +132,11 @@ function Operator1({daily}) {
         
         <div>
             <h2>Today's cases in total:</h2>
-            <h1>{daily[active].cases}</h1>
+            <h1>{now.case}</h1>
         </div>
         <div>
             <h2>Nr of tests today:</h2>
-            <h1>{daily[active].tests}</h1>
+            <h1>{now.test}</h1>
         </div>
         
         </div>
