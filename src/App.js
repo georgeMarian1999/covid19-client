@@ -9,25 +9,34 @@ import DashboardPage from "./DashboardPage/DashboardPage";
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
 import Operator from "./OperatorPage/Operator";
+import AdminRoute from "./Common/AdminRoute";
+import ProtectedRoute from "./Common/ProtectedRoute";
 
 function App() {
   return (
     <Switch>
-
-        <Route exact path='/adminboard/statistics'>
+        <AdminRoute exact path='/adminboard/statistics'>
             <Header/>
             <AdminPageStatistics/>
             <Footer/>
-        </Route>
-        <Route exact path={'/adminboard'}>
+        </AdminRoute>
+
+        <AdminRoute exact path={'/adminboard'}>
             <Header/>
             <AdminBoard/>
             <Footer/>
-        </Route>
-        <Route exact path={'/dashboard'}>
-            <DashboardPage/>
-        </Route>
+        </AdminRoute>
 
+        <Route exact path={'/dashboard'}>
+          <Header/>
+            <DashboardPage/>
+            <Footer/>
+        </Route>
+        <Route exact path={'/operator'}>
+          <Header/>
+            <Operator/>
+            <Footer/>
+        </Route>
         <Route exact path='/adminboard/users'>
             <Header/>
             <AdminPageUsers/>
@@ -39,12 +48,19 @@ function App() {
             <LoginPage/>
             <Footer/>
         </Route>
+
         <Route exact path='/home'>
+            <Header/>
             <LandingPage/>
+            <Footer/>
         </Route>
-        <Route path='/medicboard'>
+
+        <ProtectedRoute path='/medicboard'>
+            <Header/>
             <MedicPage/>
-        </Route>
+            <Footer/>
+        </ProtectedRoute>
+
         <Route path={'*'} render={()=> <Redirect to={'/home'}/>}/>
     </Switch>
   );

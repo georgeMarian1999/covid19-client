@@ -1,4 +1,3 @@
-import { count } from "d3";
 import React, {useEffect} from "react";
 import {useSelector} from "react-redux";
 import style from "./Popup.module.css";

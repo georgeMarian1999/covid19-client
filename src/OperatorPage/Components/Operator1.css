@@ -1,10 +1,85 @@
-button {
+.operator1 button {
     background-color: tomato;
     color: white;
     border: none;
     height: 30px;
+    margin: 10px;
 }
 
-button:hover {
+.operator1 button:hover {
     background-color: rgb(248, 74, 43);
+    
+}
+
+.operator1 {
+    padding: 20px;
+    
+}
+
+.operator1 .flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.operator1 .flex h1 {
+    color: rgb(0, 136, 170);;
+}
+
+.operator1 .load {
+    display: block;
+    margin: auto;
+    text-align: center;
+}
+
+.form {
+    display: block;
+    margin: auto;
+    width: 50%;
+    text-align: center;
+}
+
+.operator1 select{
+    height: 50px;
+    margin-left: 10px;
+}
+
+.operator1 .official button {
+    display: block;
+    margin: auto;
+    background-color:rgb(17, 194, 194);
+    color: black;
+    margin-top: 10px;
+    height: 30px;
+    min-width: 30%;
+    border-radius: 5px;
+}
+
+.operator1 .official button:hover {
+    background-color: darkcyan;
+}
+
+.spinner {
+    animation: spin infinite 5s linear;
+    font-size: 40pt;
+    text-align: center;
+    color: grey;
+    display: block;
+    margin: auto;
+    margin-bottom: 30px;
+  }
+
+@keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+}
+
+.loading {
+    color: grey;
+    margin: 50px;
+    text-align: center;
 }
