@@ -32,7 +32,11 @@ function App() {
             <DashboardPage/>
             <Footer/>
         </Route>
-
+        <Route exact path={'/operator'}>
+          <Header/>
+            <Operator/>
+            <Footer/>
+        </Route>
         <Route exact path='/adminboard/users'>
             <Header/>
             <AdminPageUsers/>
