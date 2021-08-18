@@ -6,12 +6,12 @@ const AdminRoute = ({children,...rest}) =>{
         <Route
             {...rest}
             render={({ location }) =>
-                user.type === 'admin' ? (
+                sessionStorage.getItem("crtUser")&& user.type === 'admin' ? (
                     children
                 ) : (
                     <Redirect
                         to={{
-                            pathname: "/"+user.type+'board',
+                            pathname: "/home",
                             state: { from: location }
                         }}
                     />

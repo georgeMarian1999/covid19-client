@@ -47,12 +47,12 @@ const LoginForm = ({loading,onSubmit,handleChange,values}) => {
             </div>
             <div className={style.inputWrapper+' '+style.buttonWrapper}>
                 <input
-                    className={style.enabled +' '+(style.disabled && disabled)}
+                    className={style.button+' '+style.enabled +' '+(style.disabled && disabled)}
                     disabled={disabled}
                     type={'submit'}
                     value={'LOGIN'}
                 />
-                {loading &&<CircularProgress/>}
+                {loading && <CircularProgress/>}
             </div>
         </form>
       </div>

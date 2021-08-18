@@ -9,8 +9,19 @@ const AdminPageStatistics = ()=> {
     const [loading,setLoading] = useState(false);
     const dispatch = useDispatch();
     useEffect(()=>{
-        getCountiesList();
-        getHistoricalData();
+        setLoading(true);
+        const promise1 = getCountiesList();
+        const promise2 = getHistoricalData();
+
+        axios.all([promise1,promise2])
+            .then(axios.spread((...responses)=>{
+                const response1 = responses[0];
+                const response2 = responses[1];
+                setLoading(false);
+                dispatch(allActions.countiesActions.loadCounties(response1.data));
+                dispatch(allActions.historicalActions.loadHistorical(response2.data))
+
+        }))
     },[])
     const updateCountyData = (e) =>{
         let data = {
@@ -45,25 +56,26 @@ const AdminPageStatistics = ()=> {
     }
     const getCountiesList = async ()=> {
         setLoading(true);
-       await axios.get(ONLINE_URL+'casesByCounty')
-           .then((res)=>{
-               setLoading(false);
-               dispatch(allActions.countiesActions.loadCounties(res.data));
-           })
-           .catch((err)=>{
-               setLoading(false);
-               console.log(err);
-           })
+        return axios.get(ONLINE_URL+'casesByCounty');
+       // await axios.get(ONLINE_URL+'casesByCounty')
+       //     .then((res)=>{
+       //         setLoading(false);
+       //         dispatch(allActions.countiesActions.loadCounties(res.data));
+       //     })
+       //     .catch((err)=>{
+       //         setLoading(false);
+       //         console.log(err);
+       //     })
        ;
     }
     const getHistoricalData = async () =>{
-        await axios.get(ONLINE_URL+'historical')
-            .then((res)=>{
-                dispatch(allActions.historicalActions.loadHistorical(res.data))
-            })
-            .catch((err)=>{
-                console.log(err);
-            })
+        return axios.get(ONLINE_URL+'historical')
+            // .then((res)=>{
+            //     dispatch(allActions.historicalActions.loadHistorical(res.data))
+            // })
+            // .catch((err)=>{
+            //     console.log(err);
+            // })
     }
 
     return(
