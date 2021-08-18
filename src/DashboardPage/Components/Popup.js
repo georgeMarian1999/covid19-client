@@ -1,6 +1,4 @@
-import { count } from "d3";
 import React, {useEffect} from "react";
-import {useSelector} from "react-redux";
 import style from "./Popup.module.css"
 
 
@@ -15,7 +13,7 @@ const Popup = ({county_code,counties}) => {
 
     return(
         <div className={style.infos}>
-             {counties[index].county}
+             {counties[index]!==undefined && counties[index].county}
         </div>
     )
 }

@@ -9,21 +9,22 @@ import DashboardPage from "./DashboardPage/DashboardPage";
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
 import Operator from "./OperatorPage/Operator";
+import AdminRoute from "./Common/AdminRoute";
 
 function App() {
   return (
     <Switch>
 
-        <Route exact path='/adminboard/statistics'>
+        <AdminRoute exact path='/adminboard/statistics'>
             <Header/>
             <AdminPageStatistics/>
             <Footer/>
-        </Route>
-        <Route exact path={'/adminboard'}>
+        </AdminRoute>
+        <AdminRoute exact path={'/adminboard'}>
             <Header/>
             <AdminBoard/>
             <Footer/>
-            </Route>
+        </AdminRoute>
         <Route exact path={'/dashboard'}>
           <Header/>
             <DashboardPage/>
