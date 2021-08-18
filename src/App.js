@@ -11,6 +11,7 @@ import Footer from "./Footer/Footer";
 import Operator from "./OperatorPage/Operator";
 import AdminRoute from "./Common/AdminRoute";
 import ProtectedRoute from "./Common/ProtectedRoute";
+import DashboardVaccinePage from "./DashboardPage/DashboardVaccinePage";
 
 function App() {
   return (
@@ -42,7 +43,10 @@ function App() {
             <AdminPageUsers/>
             <Footer/>
         </Route>
-
+        <Route exact path={'/dashboard/vaccines'}>
+            <Header/>
+            <DashboardVaccinePage/>
+        </Route>
         <Route exact path={'/login'}>
             <Header/>
             <LoginPage/>
