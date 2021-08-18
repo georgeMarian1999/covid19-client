@@ -1,4 +1,4 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 import React from 'react'
 import { useState } from 'react/cjs/react.development'
@@ -115,7 +115,7 @@ function Operator1({daily}) {
             
         {(loading)? (<>
         <div className='loading'>
-            <FontAwesomeIcon icon={faSpinner} className='spinner'/>
+            {/* <FontAwesomeIcon icon={faSpinner} className='spinner'/> */}
             Yhe server is working on updates... This may take a while
             </div>
         </>):(<></>)}
