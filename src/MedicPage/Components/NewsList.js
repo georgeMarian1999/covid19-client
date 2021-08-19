@@ -1,7 +1,5 @@
 import React from 'react';
 import style from './NewsList.module.css';
-import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
-import EditRoundedIcon from '@material-ui/icons/EditRounded';
 
 const NewsList = ({ news, onChangeEditTitle, onChangeEditDescription, onChangeEditLink, onChangeEditContent, onChangeEditSource }) => {
     return (
@@ -9,29 +7,18 @@ const NewsList = ({ news, onChangeEditTitle, onChangeEditDescription, onChangeEd
             <thead className={style.thead}>
                 <tr>
                     <th></th>
-                    <th>Id</th> 
                     <th>Title</th>
                     <th>Description</th>
                     <th>Link</th>
                     <th>Content</th>
                     <th>Publication Date</th>
                     <th>Source</th>
-                    <th></th>
-                    <th></th>
                 </tr>
             </thead>
             <tbody className={style.tbody}>
                 {news.map((newsRow, idx) =>
                     <tr key={idx} className={style.row} >
                         <td><img src={newsRow.imageurl} className={style.image} alt="news img"/></td>
-                        <td className={style.td}>
-                            <input
-                                className={style.id}
-                                type="text"
-                                name='id'
-                                value={newsRow.id}
-                            />
-                        </td>
                         <td className={style.td}>
                             <textarea
                                 className={style.title}
@@ -84,8 +71,6 @@ const NewsList = ({ news, onChangeEditTitle, onChangeEditDescription, onChangeEd
                                 onChange={onChangeEditSource}
                             />
                         </td>
-                        <td><EditRoundedIcon className={style.icon} /**onClick={saveChanges}*/></EditRoundedIcon></td>
-                        <td><DeleteForeverIcon /**onClick={onDelete(idx)} */ className={style.icon}>Delete</DeleteForeverIcon></td> 
                     </tr>
                 )}
                 </tbody>

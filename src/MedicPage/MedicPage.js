@@ -8,16 +8,16 @@ const MedicPage = () => {
 
     const [news, setNews] = useState([]);
 
-    // Get all news
+    // Get news
     const getNews = () => {
-        axios.get("http://localhost:5000/getNews")
+        axios.get('http://localhost:5000/getNews')
             .then(res => {
                 const news = res.data;
                 setNews(news);
             });
     }
 
-     // Add user
+     // Add news
      const addNews = async (newsRow) => {
         try {
              await fetch("http://localhost:5000/addNews", {
@@ -35,18 +35,16 @@ const MedicPage = () => {
         getNews();
     }, []);
 
-    return <div className="mainContainer">
-        <div>
-            <AddNewsForm onAddNews={addNews}/>
-        </div>
 
-        <div>
+
+    return <>
+            <AddNewsForm 
+                onAddNews={addNews}
+            />
             <NewsList 
                 news={news}
             />
-        </div>
-
-    </div>
+        </>
 }
 
 

@@ -8,7 +8,6 @@ import AdminPageUsers from "./AdminPage/AdminPageUsers";
 import DashboardPage from "./DashboardPage/DashboardPage";
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
-import Operator from "./OperatorPage/Operator";
 
 function App() {
   return (
@@ -46,12 +45,8 @@ function App() {
             <LandingPage/>
             <Footer/>
         </Route>
-<<<<<<< HEAD
         <Route exact path='/medicboard'>
-=======
-        <Route path='/medicboard'>
             <Header/>
->>>>>>> e36d303f31dade5fa0dd52af3b93197530baad5b
             <MedicPage/>
             <Footer/>
         </Route>

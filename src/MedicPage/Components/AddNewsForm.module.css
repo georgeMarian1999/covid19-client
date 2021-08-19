@@ -1,5 +1,5 @@
 .formContent {
-    margin-top: 100px;
+    margin-top: 50px;
     margin-left: 300px;
     width: 600px;   
 }
@@ -14,14 +14,12 @@ input {
     display: flex;
     justify-content: space-evenly;
     width: 108%;
-    /* height: 20px; */
 }
 
 .title {
     width: 75%;
     margin-right: 10px;
     height: 20px;
-    /* display:inline-block; */
 }
 
 .date {
@@ -33,7 +31,6 @@ input {
 .content {
     height: 100px;
 }
-
 
 .buttonAddNews {
     background-color: rgb(103, 154, 221);

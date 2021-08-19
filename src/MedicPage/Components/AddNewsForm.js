@@ -24,7 +24,6 @@ const AddNewsForm = (props) => {
             content: content.current.value
         }
         props.onAddNews(newsRow);
-        console.log('ana', date.current.value);
 
         title.current.value = '';
         description.current.value = '';
