@@ -8,31 +8,43 @@ const MedicPage = () => {
 
     const [news, setNews] = useState([]);
 
-    // Get all news
+    // Get news
     const getNews = () => {
-        axios.get("http://localhost:5000/getNews")
+        axios.get('http://localhost:5000/getNews')
             .then(res => {
                 const news = res.data;
                 setNews(news);
             });
     }
 
+     // Add news
+     const addNews = async (newsRow) => {
+        try {
+             await fetch("http://localhost:5000/addNews", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(newsRow),
+            });
+        } catch (err) {
+            console.error(err.message);
+        }
+        setNews([...news, newsRow]);
+    }
+
     useEffect(() => {
         getNews();
     }, []);
 
-    return <div className="mainContainer">
-        <div>
-            <AddNewsForm/>
-        </div>
 
-        <div>
+
+    return <>
+            <AddNewsForm 
+                onAddNews={addNews}
+            />
             <NewsList 
                 news={news}
             />
-        </div>
-
-    </div>
+        </>
 }
 
 

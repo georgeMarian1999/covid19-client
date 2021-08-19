@@ -1,0 +1,16 @@
+.graphic svg {
+    display: block;
+    width: 100%;
+    min-height: 500px;
+    background: #f7f7f7;
+    overflow: visible;
+  }
+  
+  .graphic svg rect.selection {
+    stroke: none;
+  }
+  
+  .graphic{
+    width: 75%;
+    margin: 200px;
+}

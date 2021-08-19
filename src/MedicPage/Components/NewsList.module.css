@@ -5,11 +5,8 @@
     margin-bottom: 100px;
     width: 100%;
     display: block;
-  /* max-width: -moz-fit-content; */
     max-width: fit-content;
     height: 400px;
-    /* overflow-y: scroll; */
-    /* white-space: nowrap; */
     table-layout: fixed; 
     border-collapse: collapse;
 }
@@ -18,7 +15,10 @@
     display: block;
     overflow-y: scroll;
     height: 400px;
-    /* width: 90%; */
+}
+
+.thead {
+    display: block;
 }
 
 .newsTable td, .newsTable th {
@@ -26,7 +26,6 @@
     text-align: left;
     width: 200px;
 }
-
 
 .row {
     margin: 0;
