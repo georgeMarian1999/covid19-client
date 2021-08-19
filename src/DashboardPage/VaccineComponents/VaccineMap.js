@@ -20,7 +20,7 @@ const VaccineMap = ({vaccineData}) =>{
                       const vaccine = vaccineData.findIndex(el =>el.county.toUpperCase() === county.name.toUpperCase());
                           return(
                               <g ref={svgRef} key={county.id} className={style.countyWrapper}>
-                                  <path d={county.d} id={county.id} name={county.name}></path>
+                                  <path d={county.d} id={county.id} name={county.name}/>
                                   <Tooltip triggerRef={svgRef}>
                                       <rect x={2} y={0} width={200} height={50} rx={.5} ry={.5} fill='black'/>
                                       <text x={5} y={15} fontSize={13} fill='white'>

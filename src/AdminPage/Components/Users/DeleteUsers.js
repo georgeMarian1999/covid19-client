@@ -1,6 +1,7 @@
 import axios from "axios";
 import {useDispatch} from "react-redux";
 import {deleteUsers} from "../../../Store/Actions/deleteUsers"
+import ONLINE_URL from "../../../Common/ONLINE_URL";
 
 const DeleteUsers = ({user}) => {
 
@@ -8,7 +9,7 @@ const DeleteUsers = ({user}) => {
 
     // Delete user
     const deleteUser = async () => {
-        await axios.delete(`http://localhost:5000/deleteUser/${user.id}`)
+        await axios.delete(`${ONLINE_URL}deleteUser/${user.id}`)
             .then(res => {
                 const users = res.data;
             }).catch((err) => {

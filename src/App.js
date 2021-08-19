@@ -12,6 +12,7 @@ import Operator from "./OperatorPage/Operator";
 import AdminRoute from "./Common/AdminRoute";
 import ProtectedRoute from "./Common/ProtectedRoute";
 import DashboardVaccinePage from "./DashboardPage/DashboardVaccinePage";
+import OperatorRoute from "./Common/OperatorRoute";
 
 function App() {
   return (
@@ -33,11 +34,11 @@ function App() {
             <DashboardPage/>
             <Footer/>
         </Route>
-        <Route exact path={'/operator'}>
+        <OperatorRoute exact path={'/operatorboard'}>
           <Header/>
             <Operator/>
             <Footer/>
-        </Route>
+        </OperatorRoute>
         <Route exact path='/adminboard/users'>
             <Header/>
             <AdminPageUsers/>

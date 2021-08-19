@@ -55,27 +55,10 @@ const AdminPageStatistics = ()=> {
             })
     }
     const getCountiesList = async ()=> {
-        setLoading(true);
         return axios.get(ONLINE_URL+'casesByCounty');
-       // await axios.get(ONLINE_URL+'casesByCounty')
-       //     .then((res)=>{
-       //         setLoading(false);
-       //         dispatch(allActions.countiesActions.loadCounties(res.data));
-       //     })
-       //     .catch((err)=>{
-       //         setLoading(false);
-       //         console.log(err);
-       //     })
-       ;
     }
     const getHistoricalData = async () =>{
-        return axios.get(ONLINE_URL+'historical')
-            // .then((res)=>{
-            //     dispatch(allActions.historicalActions.loadHistorical(res.data))
-            // })
-            // .catch((err)=>{
-            //     console.log(err);
-            // })
+        return axios.get(ONLINE_URL+'historical');
     }
 
     return(

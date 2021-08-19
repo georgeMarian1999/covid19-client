@@ -4,7 +4,7 @@ import axios from "axios";
 import UsersList from "./Components/Users/UsersList";
 import CreateUserForm from "./Components/Users/CreateUserForm";
 import {useSelector} from "react-redux";
-
+import ONLINE_URL from "../Common/ONLINE_URL";
 const AdminPageUsers = () => {
 
     const [users, setUsers] = useState([]);
@@ -15,7 +15,7 @@ const AdminPageUsers = () => {
 
     // Get all users
     const getAllUsers = async () => {
-        await axios.get("http://localhost:5000/getAllUsers")
+        await axios.get(ONLINE_URL+"getAllUsers")
             .then(res => {
                 const users = res.data;
                 setUsers(users);
@@ -26,7 +26,7 @@ const AdminPageUsers = () => {
     const createUser = async (user) => {
 
         try {
-            await fetch("http://localhost:5000/createUser", {
+            await fetch(ONLINE_URL+"createUser", {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(user),
