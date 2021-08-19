@@ -5,6 +5,8 @@ import { useState } from 'react/cjs/react.development'
 import './Operator1.css'
 import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 import { getByAltText } from '@testing-library/react';
+import {CircularProgress} from "@material-ui/core";
+import ONLINE_URL from "../../Common/ONLINE_URL";
 function Operator1({daily}) {
 
     const [active, setActive] = useState(0);
@@ -18,7 +20,7 @@ function Operator1({daily}) {
         event.preventDefault();
         let result = window.confirm('This action will pull data from official sites about daily cases and tests for the last 40 days');
         if(result){
-            await axios.post('http://localhost:5000/UpdateCases');
+            await axios.post(ONLINE_URL+'UpdateCases');
             setLoading(true);
             
             
@@ -36,7 +38,7 @@ function Operator1({daily}) {
         let result = window.confirm('This action will pull data from official sites about recent news. Your own news will not be deleted');
         
         if(result){
-            await axios.post('http://localhost:5000/UpdateNews');
+            await axios.post(ONLINE_URL+'UpdateNews');
 
             setLoading(true);
             
@@ -50,16 +52,17 @@ function Operator1({daily}) {
     }
 
     async function loadCounty(event){
+        setLoading(true);
         event.preventDefault();
         let result = window.confirm('This action will pull data from official sites about recent county data');
         
         if(result){
-            await axios.put('http://localhost:5000/update');
-            setLoading(true);
-            
-            
-            setTimeout(function(){setLoading(false);
-            window.location.replace('/dashboard');}, 10000);
+            await axios.put(ONLINE_URL+'update');
+
+            setLoading(false);
+            window.location.replace('/dashboard');
+            //setTimeout(function(){setLoading(false);
+            // window.location.replace('/dashboard');}, 10000);
 
         }
         
@@ -89,7 +92,7 @@ function Operator1({daily}) {
             data.date = d;
         }
 
-        axios.put('http://localhost:5000/setDaily', data).then(
+        axios.put(ONLINE_URL+'setDaily', data).then(
             alert('Modifications saved, refresh page to see the new data'),
             daily[active].cases = cases,
             daily[active].tests = tests,
@@ -115,7 +118,7 @@ function Operator1({daily}) {
             
         {(loading)? (<>
         <div className='loading'>
-            {/* <FontAwesomeIcon icon={faSpinner} className='spinner'/> */}
+            <CircularProgress/>
             Yhe server is working on updates... This may take a while
             </div>
         </>):(<></>)}

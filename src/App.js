@@ -29,11 +29,11 @@ function App() {
             <Footer/>
         </AdminRoute>
 
-        <Route exact path={'/dashboard'}>
-          <Header/>
-            <DashboardPage/>
-            <Footer/>
-        </Route>
+        {/*<Route exact path={'/dashboard'}>*/}
+        {/*  <Header/>*/}
+        {/*    <DashboardPage/>*/}
+        {/*    <Footer/>*/}
+        {/*</Route>*/}
         <OperatorRoute exact path={'/operatorboard'}>
           <Header/>
             <Operator/>
@@ -44,7 +44,7 @@ function App() {
             <AdminPageUsers/>
             <Footer/>
         </Route>
-        <Route exact path={'/dashboard/vaccines'}>
+        <Route exact path={'/dashboard'}>
             <Header/>
             <DashboardVaccinePage/>
         </Route>

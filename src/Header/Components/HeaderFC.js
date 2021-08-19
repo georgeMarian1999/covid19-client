@@ -20,7 +20,7 @@ function HeaderFC({user}) {
             (user.type.toLowerCase()==='admin')) && (<a href="/medicboard" className='a'>Medic page</a>)}
 
             {((user.type.toLowerCase()==='operator') ||
-            (user.type.toLowerCase()==='admin')) && (<a href="/operator" className='a'>Operator page</a>)}
+            (user.type.toLowerCase()==='admin')) && (<a href="/operatorboard" className='a'>Operator page</a>)}
             
             {
             (user.type.toLowerCase()==='admin') && ( <a href="/adminboard" className='a'>Admin board</a>)}
