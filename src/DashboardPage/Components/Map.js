@@ -7,7 +7,6 @@ const Map = ({counties}) => {
     return (
         <div>
             <div className={style.mapdiv}>
-
                 <SvgMap counties={counties}/>
             </div>
         </div>
